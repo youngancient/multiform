@@ -1,0 +1,52 @@
+
+.desktop{
+    display: none;
+}
+
+.num{
+    border-radius: 50%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border: 2px solid hsl(231, 100%, 99%);
+    color: hsl(231, 100%, 99%);
+    font-weight: 600;
+    cursor: pointer;
+}
+.num:hover{
+    background: hsl(206, 94%, 87%);
+    color: hsl(213, 96%, 18%);
+    border: none;
+}
+.paged{
+    background: hsl(206, 94%, 87%);
+    color: hsl(213, 96%, 18%);
+    border: none;
+}
+.step .step-num{
+    color: hsl(229, 24%, 87%);
+    font-size: 0.8rem;
+}
+.step h4{
+    color: hsl(231, 100%, 99%);
+    letter-spacing: 2px;
+}
+@media screen and (min-width: 728px) {
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+    .fixed-div{
+        display: flex;
+        gap: 1rem;
+    }
+    .step{
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}

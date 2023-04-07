@@ -1,0 +1,22 @@
+
+.page-comp{
+    overflow: hidden;
+}
+@media screen and (min-width: 728px) {
+    .page-comp{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* remove this */
+        height: 30vh;
+    }
+    .page-comp .btn{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media screen and (min-width: 998px) {
+    .page-comp{
+        height: 100%;
+    }
+}

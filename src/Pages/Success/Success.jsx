@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 const pageVariant ={
     initial :{
-        x : "300px",
+        x : "-300px",
         opacity : 0,
     },
     final :{
@@ -12,7 +12,7 @@ const pageVariant ={
         }
     },
     exit :{
-        x : "-300px",
+        x : "300px",
         opacity : 0,
         transition :{
             duration : 0.5,
@@ -20,17 +20,17 @@ const pageVariant ={
     }
 }
 
-const AddOn = () => {
+const Success = () => {
     return ( 
-        <motion.div className="add-on"
+        <motion.div className="success"
         variants={pageVariant}
         initial ="initial"
         animate ="final"
         exit ="exit"
         >
-            Add on
+            success here
         </motion.div>
      );
 }
  
-export default AddOn;
+export default Success;

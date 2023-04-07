@@ -20,17 +20,17 @@ const pageVariant ={
     }
 }
 
-const AddOn = () => {
-    return ( 
-        <motion.div className="add-on"
+const Error = () => {
+    return (  
+        <motion.div className="error"
         variants={pageVariant}
         initial ="initial"
         animate ="final"
         exit ="exit"
         >
-            Add on
+            error dey
         </motion.div>
-     );
+    );
 }
  
-export default AddOn;
+export default Error;
