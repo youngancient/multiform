@@ -1,5 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import "./style.css";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const footerVariants = {
   exit: {
@@ -10,7 +12,9 @@ const footerVariants = {
     },
   },
 };
+  
 const PageComp = ({ comp, pageNo, next, back }) => {
+  const loc = useLocation();
   return (
     <div className="page-comp">
       <div className="comp">{comp}</div>

@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import "./style.css";
+
 const pageVariant ={
     initial :{
         x : "-300px",

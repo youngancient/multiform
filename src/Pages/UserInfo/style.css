@@ -1,4 +1,59 @@
 
 .user-info{
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    padding-bottom: 2rem;
+}
+.head .intro{
+    margin-top: 0.75rem;
+    font-weight: 500;
+    color: hsl(231, 11%, 63%)
+}
+
+.form-ele .label{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.label label{
+    color :hsl(213, 96%, 18%);
+    font-weight: 500;
+}
+.user-info form{
+    margin-top: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+h1{
+    color:hsl(213, 96%, 18%);
+}
+form input{
+    height: 50px;
+    width: 100%;
+    padding: 1rem;
+    outline: 0;
+    border: 1.5px solid hsl(229, 24%, 87%);
+    border-radius: 0.5rem;
+    color: hsl(213, 96%, 18%);
+}
+form input:focus{
+    border: 1.5px solid hsl(243, 100%, 62%);
+}
+form .input{
+    margin-top: 0.5rem;
+}
+@media screen and (min-width: 728px) {
+    .user-info{
+        background-color:transparent;
+        padding: 0;
+        border-radius: 0;   
+    }
+    form .input{
+        margin-top: 0.75rem;
+    }
+}
+@media screen and (min-width: 998px) {
     
 }

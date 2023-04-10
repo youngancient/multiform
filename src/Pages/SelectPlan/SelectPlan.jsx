@@ -1,37 +1,48 @@
+import { motion } from "framer-motion";
+import "./style.css";
 
-import { motion } from 'framer-motion';
-const pageVariant ={
-    initial :{
-        x : "300px",
-        opacity : 0,
+const pageVariant = {
+  initial: {
+    x: "300px",
+    opacity: 0,
+  },
+  final: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.75,
     },
-    final :{
-        x : 0,
-        opacity : 1,
-        transition :{
-            duration : 0.75,
-        }
+  },
+  exit: {
+    x: "-300px",
+    opacity: 0,
+    transition: {
+      duration: 0.5,
     },
-    exit :{
-        x : "-300px",
-        opacity : 0,
-        transition :{
-            duration : 0.5,
-        }
-    }
-}
+  },
+};
 
 const SelectPlan = () => {
-    return ( 
-        <motion.div className="select-plan"
-        variants={pageVariant}
-        initial ="initial"
-        animate ="final"
-        exit ="exit"
-        >
-            select plan
-        </motion.div>
-     );
-}
- 
+  return (
+    <motion.div
+      className="select-plan"
+      variants={pageVariant}
+      initial="initial"
+      animate="final"
+      exit="exit"
+    >
+      <div className="head">
+        <h1>Select your plan</h1>
+        <p className="intro">
+          {" "}
+          You have the option of monthly or yearly billing.
+        </p>
+      </div>
+      <div className="content">
+        contents here
+      </div>
+    </motion.div>
+  );
+};
+
 export default SelectPlan;

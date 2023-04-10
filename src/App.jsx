@@ -155,12 +155,7 @@ function App() {
               <Route
                 path="/*"
                 element={
-                  <PageComp
-                    pageNo={pageNo}
-                    next={next}
-                    back={back}
-                    comp={<Error />}
-                  ></PageComp>
+                  <Error />
                 }
               />
             </Routes>
@@ -171,7 +166,6 @@ function App() {
       {pageNo !== 4 ? (
         <motion.div
           className="mobile-foot mobile"
-          key= "mobile-footer"
           variants={footerVariants}
           exit="exit"
         >

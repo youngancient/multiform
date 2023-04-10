@@ -21,6 +21,7 @@ const pageVariant ={
 }
 
 const Error = () => {
+    console.log("err")
     return (  
         <motion.div className="error"
         variants={pageVariant}
