@@ -25,7 +25,7 @@ const pageVariant = {
 const AddOn = () => {
   return (
     <motion.div
-      className="add-on"
+      className="add-on white-bg"
       variants={pageVariant}
       initial="initial"
       animate="final"

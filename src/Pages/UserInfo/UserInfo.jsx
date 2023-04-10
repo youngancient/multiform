@@ -24,7 +24,7 @@ const pageVariant = {
 const UserInfo = () => {
   return (
     <motion.div
-      className="user-info"
+      className="user-info white-bg"
       variants={pageVariant}
       initial="initial"
       animate="final"
@@ -41,7 +41,7 @@ const UserInfo = () => {
         <div className="form-ele">
           <div className="label">
             <label htmlFor="name">Name</label>
-            <p className="error">Name cannot be empty</p>
+            <p className="error">Name can't be empty</p>
           </div>
           <div className="input">
             <input type="text" name="name" id="" />
@@ -50,7 +50,7 @@ const UserInfo = () => {
         <div className="form-ele">
           <div className="label">
             <label htmlFor="name">Email</label>
-            <p className="error">Email cannot be empty</p>
+            <p className="error">Email can't be empty</p>
           </div>
           <div className="input">
             <input type="email" name="email" id="" />
@@ -59,7 +59,7 @@ const UserInfo = () => {
         <div className="form-ele">
           <div className="label">
             <label htmlFor="number">Phone Number</label>
-            <p className="error">number cannot be empty</p>
+            <p className="error">field can't be empty</p>
           </div>
           <div className="input">
             <input type="tel" name="number" id="" />

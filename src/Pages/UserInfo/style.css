@@ -1,5 +1,5 @@
 
-.user-info{
+.white-bg{
     background-color: #fff;
     padding: 1.5rem;
     border-radius: 0.5rem;
@@ -45,7 +45,7 @@ form .input{
     margin-top: 0.5rem;
 }
 @media screen and (min-width: 728px) {
-    .user-info{
+    .white-bg{
         background-color:transparent;
         padding: 0;
         border-radius: 0;   

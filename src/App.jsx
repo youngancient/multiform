@@ -55,6 +55,20 @@ const btnVariants = {
     },
   },
 };
+const confirmVariant = {
+  initial : {
+    backgroundColor : "hsl(213, 96%, 18%)",
+    transition :{
+      duration: 0.5,
+    }
+  },
+  final : {
+    backgroundColor : "hsl(243, 100%, 62%)",
+    transition :{
+      duration: 0.5,
+    }
+  }
+}
 
 function App() {
   const loc = useLocation();
@@ -179,6 +193,7 @@ function App() {
                   onClick={back}
                   variants={btnVariants}
                   key="back-btn"
+                  className="back"
                   initial="initial"
                   animate="final"
                   exit="exit"
@@ -189,9 +204,14 @@ function App() {
                 <div className="none"></div>
               )}
             </AnimatePresence>
-            <button onClick={next}>
+            <motion.button onClick={next}
+            variants={confirmVariant}
+            initial = "initial"
+            className="next"
+            animate = {pageNo == 3 ? "final" : "initial"}
+            >
               {pageNo == 3 ? "Confirm" : "Next Step"}
-            </button>
+            </motion.button>
           </div>
         </motion.div>
       ) : (

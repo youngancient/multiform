@@ -12,6 +12,20 @@ const footerVariants = {
     },
   },
 };
+const confirmVariant = {
+  initial : {
+    backgroundColor : "hsl(213, 96%, 18%)",
+    transition :{
+      duration: 0.5,
+    }
+  },
+  final : {
+    backgroundColor : "hsl(243, 100%, 62%)",
+    transition :{
+      duration: 0.5,
+    }
+  }
+}
   
 const PageComp = ({ comp, pageNo, next, back }) => {
   const loc = useLocation();
@@ -28,15 +42,19 @@ const PageComp = ({ comp, pageNo, next, back }) => {
           >
             <div className="btn">
               {pageNo !== 0 ? (
-                <button onClick={back} key="backbtn">
+                <button onClick={back} key="backbtn" className="back">
                   Go back
                 </button>
               ) : (
                 <div className="none"></div>
               )}
-              <button onClick={next}>
+              <motion.button onClick={next} className={`next`}
+              variants={confirmVariant}
+              initial = "initial"
+              animate = {pageNo == 3 ? "final" : "initial"}
+              >
                 {pageNo == 3 ? "Confirm" : "Next Step"}
-              </button>
+              </motion.button>
             </div>
           </motion.div>
         ) : (

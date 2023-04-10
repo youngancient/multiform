@@ -24,7 +24,7 @@ const pageVariant = {
 const Summary = () => {
   return (
     <motion.div
-      className="summary"
+      className="summary white-bg"
       variants={pageVariant}
       initial="initial"
       animate="final"

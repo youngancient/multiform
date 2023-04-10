@@ -25,7 +25,7 @@ const pageVariant = {
 const SelectPlan = () => {
   return (
     <motion.div
-      className="select-plan"
+      className="select-plan white-bg"
       variants={pageVariant}
       initial="initial"
       animate="final"

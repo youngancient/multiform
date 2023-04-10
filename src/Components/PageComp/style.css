@@ -1,21 +1,41 @@
-
-.page-comp{
-    overflow: hidden;
+.page-comp {
+  overflow: hidden;
+}
+.btn button {
+  width: 120px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  outline: 0;
+  border: 0;
+  font-size: 1rem;
+}
+.btn .next {
+  color: hsl(231, 100%, 99%);
+  font-weight: 700;
+}
+.btn .back {
+  background: transparent;
+  font-weight: 700;
+  color: hsl(231, 11%, 63%);
+}
+.btn .back:hover {
+  color: hsl(213, 96%, 18%);
 }
 @media screen and (min-width: 728px) {
-    .page-comp{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 6rem;
-    }
-    .page-comp .btn{
-        display: flex;
-        justify-content: space-between;
-    }
+  .page-comp {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6rem;
+  }
+  .page-comp .btn {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 @media screen and (min-width: 998px) {
-    .page-comp{
-        height: 100%;
-    }
+  .page-comp {
+    height: 100%;
+  }
 }
