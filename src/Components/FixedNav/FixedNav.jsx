@@ -15,7 +15,6 @@ const numVariants = {
     background: "#bfe2fd",
     color: "#02295a",
     border: "0px",
-    scale : 1.2,
     transition: {
       duration: 1,
     },

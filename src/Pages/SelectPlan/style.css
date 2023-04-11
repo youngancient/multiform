@@ -1,5 +1,39 @@
 
 
 .content{
-    margin-top: 1.8rem;
+    margin-top: 2rem;
+}
+
+.plans-cont{
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: scroll;
+    flex-direction: column;
+}
+.switch-layer{
+    margin-top: 2rem;
+}
+@media screen and (min-width: 728px) {
+    .content{
+        margin-top: 2.5rem;
+    }
+    .plans-cont{
+        overflow-x: hidden;
+        gap: 1rem;
+        flex-direction: row;
+    }
+    .switch-layer{
+        margin-top: 2.5rem;
+    }
+}
+@media screen and (min-width: 998px) {
+    .content{
+        margin-top: 3rem;
+    }
+    .plans-cont{
+        gap: 2rem;
+    }
+    .switch-layer{
+        margin-top: 3rem;
+    }
 }

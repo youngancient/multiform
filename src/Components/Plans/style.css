@@ -1,0 +1,37 @@
+
+.plans{
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    align-items: center;
+    border-radius: 0.5rem;
+}
+.plans .plan-txt{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+@media screen and (min-width: 728px) {
+    .plans{
+        display: flex;
+        flex-direction: column;
+        width: 33%;
+        padding: 1rem;
+        justify-content: unset;
+        align-items: unset;
+        gap: 2rem;
+    }
+    .plans .plan-txt{
+        gap: 0.5rem;
+    }
+}
+@media screen and (min-width: 998px) {
+    .plans{
+        padding: 1.8rem;
+        gap: 3rem;
+    }
+    .plans .plan-txt{
+        gap: 0.5rem;
+    }
+}

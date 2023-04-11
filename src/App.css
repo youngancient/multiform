@@ -2,11 +2,12 @@
 
 .app{
     background: hsl(217, 100%, 97%);
-    height: 100vh;
     display: flex;
     gap: 1rem;
     align-items: center  ;
     flex-direction: column;
+    padding-bottom: 2rem;
+    min-height: 100vh;
 }
 .bdr{
     border: 1px solid #000;
@@ -59,6 +60,10 @@
     justify-content: space-between;
 }
 @media screen and (min-width: 728px) {
+    .app{
+        height: 100vh;
+        padding-bottom: 0;
+    }
     .in-app{
         width: 90%;
         /* height: 50vh; */
