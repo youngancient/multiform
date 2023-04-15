@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import "./style.css";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 const footerVariants = {
@@ -29,6 +29,10 @@ const confirmVariant = {
   
 const PageComp = ({ comp, pageNo, next, back }) => {
   const loc = useLocation();
+  // const ref = useRef(null);
+  // useEffect(() => {
+  //   console.log(ref.current.clientHeight)
+  // })
   return (
     <div className="page-comp">
       <div className="comp">{comp}</div>
