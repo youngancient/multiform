@@ -1,0 +1,59 @@
+
+/* overiding antd checkbox size and color */
+.ant-checkbox .ant-checkbox-inner {
+  background-color: hsl(243, 100%, 62%);
+  border-color: hsl(243, 100%, 62%);
+  width: 20px;
+  height: 20px;
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: hsl(243, 100%, 62%);
+    border-color: hsl(243, 100%, 62%);
+    width: 20px;
+    height: 20px;
+}
+.add-check{
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid hsl(231, 11%, 63%);
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+.add-check-sub{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.add-desc{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.add-desc .head{
+    font-weight: 600;
+    color: hsl(213, 96%, 18%);
+}
+.add-desc .desc{
+    color: hsl(231, 11%, 63%);
+}
+.add-check:hover{
+    border: 1px solid hsl(243, 100%, 62%);
+}
+.add-price{
+    color: hsl(243, 100%, 62%);
+}
+@media screen and (min-width: 728px) {
+    .add-desc .head{
+        font-size: 1.1rem;
+    }
+}
+@media screen and (min-width: 998px) {
+    .add-check-sub{
+        gap: 1.2rem;
+    }
+    .add-check{
+        padding: 1.34rem;
+    }
+}

@@ -21,10 +21,10 @@
     font-weight: 500;
 }
 .user-info form{
-    margin-top: 1.8rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.8rem;
 }
 h1{
     color:hsl(213, 96%, 18%);
@@ -44,6 +44,9 @@ form input:focus{
 form .input{
     margin-top: 0.5rem;
 }
+.error{
+    color: hsl(354, 84%, 57%);
+}
 @media screen and (min-width: 728px) {
     .white-bg{
         background-color:transparent;
@@ -53,7 +56,12 @@ form .input{
     form .input{
         margin-top: 0.75rem;
     }
+    .user-info form{
+        margin-top: 2rem;
+    }
 }
 @media screen and (min-width: 998px) {
-    
+    .user-info form{
+        margin-top: 3rem;
+    }
 }

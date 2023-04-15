@@ -12,6 +12,18 @@
 }
 .switch-layer{
     margin-top: 2rem;
+    background: hsla(229, 24%, 87%,0.5);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.switch-fl{
+    display: flex;
+    gap: 2rem;
+}
+.switch-fl .s-letter{
+    font-weight: 500;
 }
 @media screen and (min-width: 728px) {
     .content{
@@ -28,12 +40,12 @@
 }
 @media screen and (min-width: 998px) {
     .content{
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
     .plans-cont{
-        gap: 2rem;
+        gap: 2.5rem;
     }
     .switch-layer{
-        margin-top: 3rem;
+        margin-top: 2.5rem;
     }
 }

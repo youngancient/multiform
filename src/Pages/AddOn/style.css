@@ -1,0 +1,17 @@
+
+
+.addons{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+@media screen and (min-width: 728px) {
+    .addons{
+        gap: 1.7rem;
+    }
+}
+@media screen and (min-width: 998px) {
+    .addons{
+        gap: 1.4rem;
+    }
+}

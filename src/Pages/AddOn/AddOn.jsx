@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import "./style.css";
+import { useState } from "react";
+import AddCheck from "../../Components/AddCheck/AddCheck";
 
 const pageVariant = {
   initial: {
@@ -23,6 +25,26 @@ const pageVariant = {
 };
 
 const AddOn = () => {
+  const [addons, setAddons] = useState([
+    {
+      name: "Online service",
+      detail: "Access to multiplayer games",
+      price: "+$1/mo",
+      yearlyPrice: "+$10/mo",
+    },
+    {
+      name: "Larger storage",
+      detail: "Extra 1TB of cloud save",
+      price: "+$2/mo",
+      yearlyPrice: "+$20/mo",
+    },
+    {
+      name: "Customizable Profile",
+      detail: "Custom theme on your profile",
+      price: "+$2/mo",
+      yearlyPrice: "+$20/mo",
+    },
+  ]);
   return (
     <motion.div
       className="add-on white-bg"
@@ -35,7 +57,13 @@ const AddOn = () => {
         <h1>Pick add-ons</h1>
         <p className="intro"> Add-ons help enhance your gaming experience.</p>
       </div>
-      <div className="content">contents here</div>
+      <div className="content">
+        <div className="addons">
+          {addons.map((option) => (
+            <AddCheck option={option} key={option.name} />
+          ))}
+        </div>
+      </div>
     </motion.div>
   );
 };

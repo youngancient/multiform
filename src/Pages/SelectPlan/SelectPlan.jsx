@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import "./style.css";
 import { useState } from "react";
 import Plans from "../../Components/Plans/Plans";
+import { Switch } from "antd";
 
 const pageVariant = {
   initial: {
@@ -26,15 +27,15 @@ const pageVariant = {
 
 const SelectPlan = () => {
   const [monthlyPlans, setMonthlyPlans] = useState([
-    {img : "/assets/icon-arcade.svg", name : "Arcade", price : "$9/mo"},
-    {img : "/assets/icon-advanced.svg", name : "Advanced", price : "$12/mo"},
-    {img : "/assets/icon-pro.svg", name : "Pro", price : "$15/mo"},
-  ])
-  const [yearlyPlans, setYearlyPlans] = useState([
-    {img : "/assets/icon-arcade.svg", name : "Arcade", price : "$90/yr", free: "2 months free"},
-    {img : "/assets/icon-advanced.svg", name : "Advanced", price : "$120/yr", free: "2 months free"},
-    {img : "/assets/icon-pro.svg", name : "Pro", price : "$150/yr", free: "2 months free"},
-  ])
+    { img: "/assets/icon-arcade.svg", name: "Arcade", price: "$9/mo", yearlyPrice : "$90/yr",free: "2 months free" },
+    { img: "/assets/icon-advanced.svg", name: "Advanced", price: "$12/mo", yearlyPrice:  "$120/yr",free: "2 months free" },
+    { img: "/assets/icon-pro.svg", name: "Pro", price: "$15/mo", yearlyPrice :"$150/yr", free: "2 months free" },
+  ]);
+  const [yearlyOn, setYearlyOn] = useState(false);
+
+  const onChange = () => {
+    setYearlyOn(!yearlyOn);
+  };
   return (
     <motion.div
       className="select-plan white-bg"
@@ -52,12 +53,19 @@ const SelectPlan = () => {
       </div>
       <div className="content">
         <div className="plans-cont">
-          {monthlyPlans.map((plan)=>(
-            <Plans plan={plan} key={plan.name} />
+          {monthlyPlans.map((plan) => (
+            <Plans plan={plan} key={plan.name} yearlyOn={yearlyOn} />
           ))}
         </div>
         <div className="switch-layer">
-          switch 
+          <div className="switch-fl">
+            <div className="s-letter" style={yearlyOn ? {color : "hsl(231, 11%, 63%)"} : {color : "hsl(213, 96%, 18%)"}}>Monthly</div>
+            <Switch
+              onChange={onChange}
+              style={{ backgroundColor: "hsl(213, 96%, 18%)" }}
+            />
+            <div className="s-letter" style={yearlyOn ? {color : "hsl(213, 96%, 18%)"} : {color : "hsl(231, 11%, 63%)"}}>Yearly</div>
+          </div>
         </div>
       </div>
     </motion.div>

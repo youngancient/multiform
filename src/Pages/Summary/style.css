@@ -1,0 +1,65 @@
+
+
+.summary .content{
+    background: hsl(231, 100%, 99%);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.65rem;
+}
+.total-div{
+    padding: 1.5rem;
+}
+.total-div .total{
+    display: flex;
+    justify-content: space-between;
+}
+hr{
+    border: 1px solid hsla(229, 24%, 87%,0.5);
+}
+.summary-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sm-div-inner{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.summary-div h4{
+    font-size: 1.1rem;
+}
+.summary-div .price{
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: hsl(213, 96%, 18%);
+}
+.summary .stored{
+    display: flex;
+    justify-content: space-between;
+}
+.summary .desc{
+    color: hsl(231, 11%, 63%);
+}
+.stored .price{
+    color: hsl(213, 96%, 18%);
+}
+.total .price{
+    color: hsl(243, 100%, 62%);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+@media screen and (min-width: 728px) {
+    .summary .content, .total-div{
+        padding: 1.8rem;
+    }
+}
+@media screen and (min-width: 998px) {
+    .summary-div .content{
+        gap: 1.65rem;
+    }
+    .summary .content, .total-div{
+        padding: 2rem;
+    }
+}

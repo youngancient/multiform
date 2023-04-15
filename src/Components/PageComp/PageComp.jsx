@@ -17,7 +17,7 @@ const confirmVariant = {
     backgroundColor : "hsl(213, 96%, 18%)",
     transition :{
       duration: 0.5,
-    }
+    },
   },
   final : {
     backgroundColor : "hsl(243, 100%, 62%)",
