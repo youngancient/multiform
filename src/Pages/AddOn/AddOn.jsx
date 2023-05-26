@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import "./style.css";
 import { useState } from "react";
 import AddCheck from "../../Components/AddCheck/AddCheck";
+import PageButton from "../../Components/PageButton/pageButton";
 
 const pageVariant = {
   initial: {
-    x: "300px",
+    x: "-300px",
     opacity: 0,
   },
   final: {
@@ -46,25 +47,35 @@ const AddOn = () => {
     },
   ]);
   return (
-    <motion.div
-      className="add-on white-bg"
-      variants={pageVariant}
-      initial="initial"
-      animate="final"
-      exit="exit"
-    >
-      <div className="head">
-        <h1>Pick add-ons</h1>
-        <p className="intro"> Add-ons help enhance your gaming experience.</p>
+    <div className="page-var">
+      <div className="white-bg">
+        <motion.div
+          className="add-on"
+          variants={pageVariant}
+          initial="initial"
+          animate="final"
+          exit="exit"
+        >
+          <div className="head">
+            <h1>Pick add-ons</h1>
+            <p className="intro">
+              {" "}
+              Add-ons help enhance your gaming experience.
+            </p>
+          </div>
+          <div className="content">
+            <div className="addons">
+              {addons.map((option) => (
+                <AddCheck option={option} key={option.name} />
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
-      <div className="content">
-        <div className="addons">
-          {addons.map((option) => (
-            <AddCheck option={option} key={option.name} />
-          ))}
-        </div>
+      <div className="page-comp">
+        <PageButton nextP="/summary" backP="/select" />
       </div>
-    </motion.div>
+    </div>
   );
 };
 

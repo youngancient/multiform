@@ -44,6 +44,9 @@
     min-height: 60vh;
     padding: 1rem;
     margin-top: 6rem;
+    overflow-x: hidden;
+}
+.page-var{
 }
 .mobile-foot{
     width: 100%;
@@ -61,7 +64,7 @@
 }
 @media screen and (min-width: 728px) {
     .app{
-        height: 100vh;
+        height: 100vh; 
         padding-bottom: 0;
     }
     .in-app{
@@ -89,6 +92,7 @@
     .in-nav{
         flex-direction: column;
         transform: translateY(0);
+        padding-top: 0.5rem;
         gap: 1.5rem;
     }
     .pages{

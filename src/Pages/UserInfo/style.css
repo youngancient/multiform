@@ -4,6 +4,10 @@
     padding: 1.5rem;
     border-radius: 0.5rem;
     padding-bottom: 2rem;
+    overflow-x: hidden;
+}
+.user-inner .head{
+    margin-top: 0.5rem;
 }
 .head .intro{
     margin-top: 0.75rem;
@@ -21,10 +25,14 @@
     font-weight: 500;
 }
 .user-info form{
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1.8rem;
+}
+.user-info .form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 h1{
     color:hsl(213, 96%, 18%);
@@ -56,12 +64,21 @@ form .input{
     form .input{
         margin-top: 0.75rem;
     }
-    .user-info form{
-        margin-top: 2rem;
+    .user-info .form{
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+    }
+    .page-comp{
+        margin-top: 3rem;
     }
 }
+
 @media screen and (min-width: 998px) {
-    .user-info form{
-        margin-top: 3rem;
+    .user-info .form{
+        gap: 1.8rem;
+        margin-top: 2.5rem;
+    }
+    .page-comp{
+        margin-top: 5rem;
     }
 }

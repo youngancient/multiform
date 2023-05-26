@@ -1,6 +1,4 @@
-.page-comp {
-  overflow: hidden;
-}
+
 .btn button {
   width: 120px;
   height: 50px;
@@ -22,12 +20,18 @@
 .btn .back:hover {
   color: hsl(213, 96%, 18%);
 }
+.page-comp .btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 @media screen and (min-width: 728px) {
   .page-comp {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 6rem;
+    margin-top: 3rem;
+    position: relative;
   }
   .page-comp .btn {
     display: flex;
@@ -35,8 +39,7 @@
   }
 }
 @media screen and (min-width: 998px) {
-  .page-comp {
-    height: 100%;
-    min-height: 559px;
+  .page-comp { 
+    margin-top: 5rem;
   }
 }

@@ -1,5 +1,4 @@
 
-
 .content{
     margin-top: 2rem;
 }
@@ -17,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 0.5rem;
 }
 .switch-fl{
     display: flex;
@@ -25,6 +25,31 @@
 .switch-fl .s-letter{
     font-weight: 500;
 }
+.page-comp {
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+  .btn button {
+    width: 120px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    outline: 0;
+    border: 0;
+    font-size: 1rem;
+  }
+  .btn .next {
+    color: hsl(231, 100%, 99%);
+    font-weight: 700;
+  }
+  .btn .back {
+    background: transparent;
+    font-weight: 700;
+    color: hsl(231, 11%, 63%);
+  }
+  .btn .back:hover {
+    color: hsl(213, 96%, 18%);
+  }
 @media screen and (min-width: 728px) {
     .content{
         margin-top: 2.5rem;
@@ -37,7 +62,18 @@
     .switch-layer{
         margin-top: 2.5rem;
     }
+    .page-comp {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* gap: 6rem; */
+      }
+      .page-comp .btn {
+        display: flex;
+        justify-content: space-between;
+      }
 }
+
 @media screen and (min-width: 998px) {
     .content{
         margin-top: 2rem;
@@ -46,6 +82,6 @@
         gap: 2.5rem;
     }
     .switch-layer{
-        margin-top: 2.5rem;
+        margin-top: 1.9rem;
     }
 }

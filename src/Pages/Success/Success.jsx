@@ -16,7 +16,7 @@ const pageVariant = {
     },
   },
   exit: {
-    x: "300px",
+    x: "-300px",
     opacity: 0,
     transition: {
       duration: 0.75,
@@ -52,14 +52,14 @@ const pathVariants = {
 };
 const Success = () => {
   return (
-    <motion.div
-      className="success"
-      variants={pageVariant}
-      initial="initial"
-      animate="final"
-      exit="exit"
-    >
-      <div className="white-bg">
+    <div className="page-var white-bg">
+      <motion.div
+        className="success"
+        variants={pageVariant}
+        initial="initial"
+        animate="final"
+        exit="exit"
+      >
         <div className="head">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -93,8 +93,8 @@ const Success = () => {
             at support@loremgaming.com.
           </p>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
