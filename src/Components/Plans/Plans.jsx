@@ -2,6 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import "./style.css";
 import { useEffect, useRef } from "react";
 import styled from "@emotion/styled";
+import { useDispatch, useSelector } from "react-redux";
+import { changeSelectedPlan } from "../../redux/dataSlice";
 
 const priceVariants = {
   initial: {
@@ -24,30 +26,32 @@ const priceVariants = {
   },
 };
 const PlansDiv = styled.div`
-  .plans {
-    display: flex;
-    width: 100%;
-    padding: 1rem;
-    gap: 1.2rem;
-    align-items: center;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    border: 1px solid hsl(231, 11%, 63%);
-    min-height: 100px;
-  }
-  .plans .tg {
-    overflow: hidden;
-  }
-  .plans:hover {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  gap: 1.2rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  min-height: 100px;
+  border: 1px solid hsl(231, 11%, 63%);
+  background-color: ${(props) => (props.isSelected ? `hsl(217, 100%, 97%)` : ``) };
+  border:  ${(props) => (props.isSelected ? `1px solid hsl(243, 100%, 62%)` : ``)};
+
+  :hover {
     border: 1px solid hsl(243, 100%, 62%);
   }
-  .plans .plan-txt {
+
+  .tg {
+    overflow: hidden;
+  }
+  .plan-txt {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
     overflow-x: hidden;
   }
-  .plans .price {
+  .price {
     color: hsl(231, 11%, 63%);
   }
   .plan-txt h4 {
@@ -59,36 +63,43 @@ const PlansDiv = styled.div`
     color: hsl(213, 96%, 18%);
   }
   @media screen and (min-width: 728px) {
-    .plans {
-      display: flex;
-      flex-direction: column;
-      width: 33%;
-      padding: 1rem;
-      justify-content: unset;
-      align-items: unset;
-      gap: 2rem;
-      min-height: 200px;
-    }
-    .plans .plan-txt {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    padding: 1rem;
+    justify-content: unset;
+    align-items: unset;
+    gap: 2rem;
+    min-height: 200px;
+
+    .plan-txt {
       gap: 0.5rem;
+    }
+    .plan-txt h4{
+      font-size: 1rem;
     }
   }
+
   @media screen and (min-width: 998px) {
-    .plans {
-      padding: 1.8rem;
-      gap: 3rem;
-      min-height: 230px;
-    }
-    .plans .plan-txt {
+    padding: 1.8rem;
+    gap: 3rem;
+    min-height: 230px;
+
+    .plan-txt {
       gap: 0.5rem;
+    }
+    .plan-txt h4{
+      font-size: 1.2rem;
     }
   }
 `;
-const Plans = ({ plan, yearlyOn }) => {
-
+const Plans = ({ plan, yearlyOn, isSelected }) => {
+  const dispatch = useDispatch();
+  const handleClick =()=>{
+    dispatch(changeSelectedPlan(plan));
+  }
   return (
-    <PlansDiv>
-    <div className="plans">
+    <PlansDiv isSelected={isSelected} onClick={handleClick}>
       <div className="img">
         <img src={plan.img} alt={plan.name} className="" />
       </div>
@@ -136,7 +147,6 @@ const Plans = ({ plan, yearlyOn }) => {
           {!yearlyOn && <div className="div"></div>}
         </AnimatePresence>
       </div>
-    </div>
     </PlansDiv>
   );
 };

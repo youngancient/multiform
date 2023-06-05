@@ -8,7 +8,14 @@ const initialState = {
         sectionError : {},     
     },
     select :{
-        selectedPlan : {},
+        selectedPlan : {
+            img: "/assets/icon-arcade.svg",
+            name: "Arcade",
+            price: "$9/mo",
+            yearlyPrice: "$90/yr",
+            free: "2 months free",
+            id : 1,
+          },
         isYearly: false
     },
     addOn :{
@@ -21,22 +28,22 @@ export const dataSlice = createSlice({
     name : "data",
     initialState : initialState,
     reducers :{
-        setName :(state, action)=>{
+        setName :(state, {payload})=>{
             state.person = {
                 ...state.person,
-                name: action.payload
+                name: payload
             }
         },
-        setEmail :(state, action)=>{
+        setEmail :(state, {payload})=>{
             state.person = {
                 ...state.person,
-                email: action.payload
+                email: payload
             }
         },
-        setPhoneNo :(state, action)=>{
+        setPhoneNo :(state, {payload})=>{
             state.person = {
                 ...state.person,
-                number: action.payload
+                number: payload
             }
         },
         setError :(state, action)=>{
@@ -45,21 +52,15 @@ export const dataSlice = createSlice({
                 sectionError: action.payload
             }
         },
-        setSelectPlan :(state, action)=>{
-            state.select ={
-                ...state.select,
-                selectedPlan : action.payload
-            }
+        changeSelectedPlan :(state, {payload})=>{
+            state.select.selectedPlan = payload;
         },
-        setSelectPlanType :(state, action)=>{
-            state.select ={
-                ...state.select,
-                isYearly : action.payload
-            }
+        setSelectPlanType :(state, {payload})=>{
+            state.select.isYearly = payload;
         },
     }
 });
 
 
-export const {setEmail, setName, setPhoneNo, setError} = dataSlice.actions;
+export const {setEmail, setName, setPhoneNo, setError, changeSelectedPlan, setSelectPlanType} = dataSlice.actions;
 export default dataSlice.reducer;

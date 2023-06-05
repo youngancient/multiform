@@ -9,7 +9,8 @@ import Summary from "./Pages/Summary/Summary";
 import UserInfo from "./Pages/UserInfo/UserInfo";
 import Success from "./Pages/Success/Success";
 import { AnimatePresence, motion } from "framer-motion";
-import { useSelector} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
+import { setCount } from "./redux/pageCounter";
 
 const fixedNav = [
   { num: 1, step: "YOUR INFO" },
@@ -23,7 +24,11 @@ function App() {
   const loc = useLocation();
   // initialize page counter
   const {count} = useSelector(state => state.counter);
-  
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(setCount({loc}));
+  },[])
   return (
     <div className="app">
       <div className="in-app">

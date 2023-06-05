@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./style.css";
 import { useDispatch } from "react-redux";
 import { decrement, increment } from "../../redux/pageCounter";
+import { useEffect } from "react";
 
 const PageButton = ({nextP, backP}) => {
   // get location
@@ -12,9 +13,9 @@ const PageButton = ({nextP, backP}) => {
 
   // get the dispatch for the counter reducer
   const dispatch = useDispatch()
-
+  
   const nextPage = () => {
-    dispatch(increment());
+    dispatch(increment({loc}));
     navigate(nextP);
   };
   const backPage = () => {
