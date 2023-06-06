@@ -2,8 +2,21 @@ import { motion } from "framer-motion";
 import "./style.css";
 import PageButton from "../../Components/PageButton/pageButton";
 import { footerVariants, pageVariant } from "../../Animation/Variants";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { goToSelectPage } from "../../redux/pageCounter";
 
 const Summary = () => {
+    // get location
+    const loc = useLocation();
+    const navigate = useNavigate();
+  
+    // get the dispatch for the counter reducer
+    const dispatch = useDispatch()
+
+  const goToSelect =()=>{
+    dispatch(goToSelectPage());
+  }
   return (
     <div className="page-var">
       <div className="white-bg">
@@ -24,7 +37,7 @@ const Summary = () => {
             <div className="summary-div">
               <div className="sm-div-inner">
                 <h4>Arcade (Monthly)</h4>
-                <a href="#">Change</a>
+                <Link to="/select" onClick={goToSelect}>Change</Link>
               </div>
               <p className="price">$9/mo</p>
             </div>

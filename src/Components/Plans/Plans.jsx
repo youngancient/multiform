@@ -4,27 +4,9 @@ import { useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSelectedPlan } from "../../redux/dataSlice";
+import { priceVariants } from "../../Animation/Variants";
 
-const priceVariants = {
-  initial: {
-    x: "-20px",
-    opacity: 0,
-  },
-  final: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.75,
-    },
-  },
-  exit: {
-    opacity: 0,
-    x: "-20px",
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
+
 const PlansDiv = styled.div`
   display: flex;
   width: 100%;
@@ -93,11 +75,14 @@ const PlansDiv = styled.div`
     }
   }
 `;
-const Plans = ({ plan, yearlyOn, isSelected }) => {
+const Plans = ({ plan, isYearly, isSelected }) => {
   const dispatch = useDispatch();
   const handleClick =()=>{
     dispatch(changeSelectedPlan(plan));
   }
+  console.log(isYearly);
+  // when i switch from monthly to yearly and move from the select page, 
+  // when  i come back to the page, some components are not rendered
   return (
     <PlansDiv isSelected={isSelected} onClick={handleClick}>
       <div className="img">
@@ -107,7 +92,7 @@ const Plans = ({ plan, yearlyOn, isSelected }) => {
         <h4>{plan.name}</h4>
         <div className="tg">
           <AnimatePresence mode="wait">
-            {!yearlyOn && (
+            {!isYearly && (
               <motion.p
                 className="price"
                 key="price-m"
@@ -119,7 +104,7 @@ const Plans = ({ plan, yearlyOn, isSelected }) => {
                 {plan.price}
               </motion.p>
             )}
-            {yearlyOn && (
+            {isYearly && (
               <motion.p
                 className="price"
                 key="price-y"
@@ -133,7 +118,7 @@ const Plans = ({ plan, yearlyOn, isSelected }) => {
           </AnimatePresence>
         </div>
         <AnimatePresence>
-          {yearlyOn && (
+          {isYearly && (
             <motion.div
               className="free"
               key="free"
@@ -144,7 +129,7 @@ const Plans = ({ plan, yearlyOn, isSelected }) => {
               {plan.free}
             </motion.div>
           )}
-          {!yearlyOn && <div className="div"></div>}
+          {!isYearly && <div className="div"></div>}
         </AnimatePresence>
       </div>
     </PlansDiv>

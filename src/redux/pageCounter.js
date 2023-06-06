@@ -42,9 +42,12 @@ export const counterSlice = createSlice({
                 state.count -= 1;
             }
         },
+        goToSelectPage : (state)=>{
+            state.count = 2;
+        },
     }
 });
 
-export const {increment, decrement, setCount} = counterSlice.actions;
+export const {increment, decrement, setCount, goToSelectPage} = counterSlice.actions;
 
 export default counterSlice.reducer;

@@ -52,13 +52,13 @@ const SelectPlan = () => {
       id : 3,
     },
   ]);
-  const [yearlyOn, setYearlyOn] = useState(false);
+  // const [isYearly, setisYearly] = useState(false);
   const { select } = useSelector((state) => state.data);
   const selected = select.selectedPlan;
   const dispatch = useDispatch();
 
   const onChange = () => {
-    setYearlyOn(!yearlyOn);
+    // setisYearly(!isYearly);
     dispatch(setSelectPlanType(!select.isYearly));
   };
   return (
@@ -81,7 +81,7 @@ const SelectPlan = () => {
           <div className="content">
             <div className="plans-cont">
               {monthlyPlans.map((plan) => (
-                <Plans plan={plan} key={plan.name} yearlyOn={yearlyOn} isSelected={plan.id === selected.id} />
+                <Plans plan={plan} key={plan.name} isYearly={select.isYearly} isSelected={plan.id === selected.id} />
               ))}
             </div>
             <div className="switch-layer">
@@ -89,7 +89,7 @@ const SelectPlan = () => {
                 <div
                   className="s-letter"
                   style={
-                    yearlyOn
+                    select.isYearly
                       ? { color: "hsl(231, 11%, 63%)" }
                       : { color: "hsl(213, 96%, 18%)" }
                   }
@@ -98,12 +98,13 @@ const SelectPlan = () => {
                 </div>
                 <Switch
                   onChange={onChange}
+                  defaultChecked={select.isYearly ? true : false}
                   style={{ backgroundColor: "hsl(213, 96%, 18%)" }}
                 />
                 <div
                   className="s-letter"
                   style={
-                    yearlyOn
+                    select.isYearly
                       ? { color: "hsl(213, 96%, 18%)" }
                       : { color: "hsl(231, 11%, 63%)" }
                   }

@@ -75,3 +75,24 @@ export const exitButton ={
       },
     },
   };
+
+  export const priceVariants = {
+    initial: {
+      x: "-20px",
+      opacity: 0,
+    },
+    final: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.75,
+      },
+    },
+    exit: {
+      opacity: 0,
+      x: "-20px",
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
