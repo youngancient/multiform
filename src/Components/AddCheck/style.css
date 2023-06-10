@@ -36,6 +36,7 @@
     color: hsl(213, 96%, 18%);
 }
 .add-desc .desc{
+    font-size: 0.85rem;
     color: hsl(231, 11%, 63%);
 }
 .add-check:hover{
@@ -47,6 +48,9 @@
 @media screen and (min-width: 728px) {
     .add-desc .head{
         font-size: 1.1rem;
+    }
+    .add-desc .desc{
+        font-size: 0.9rem;
     }
 }
 @media screen and (min-width: 998px) {

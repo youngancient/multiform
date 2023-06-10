@@ -3,6 +3,7 @@ import "./style.css";
 import { useState } from "react";
 import AddCheck from "../../Components/AddCheck/AddCheck";
 import PageButton from "../../Components/PageButton/pageButton";
+import { useSelector } from "react-redux";
 
 const pageVariant = {
   initial: {
@@ -26,26 +27,7 @@ const pageVariant = {
 };
 
 const AddOn = () => {
-  const [addons, setAddons] = useState([
-    {
-      name: "Online service",
-      detail: "Access to multiplayer games",
-      price: "+$1/mo",
-      yearlyPrice: "+$10/mo",
-    },
-    {
-      name: "Larger storage",
-      detail: "Extra 1TB of cloud save",
-      price: "+$2/mo",
-      yearlyPrice: "+$20/mo",
-    },
-    {
-      name: "Customizable Profile",
-      detail: "Custom theme on your profile",
-      price: "+$2/mo",
-      yearlyPrice: "+$20/mo",
-    },
-  ]);
+  const { addOn} = useSelector((state) => state.data);
   return (
     <div className="page-var">
       <div className="white-bg">
@@ -65,7 +47,7 @@ const AddOn = () => {
           </div>
           <div className="content">
             <div className="addons">
-              {addons.map((option) => (
+              {addOn.map((option) => (
                 <AddCheck option={option} key={option.name} />
               ))}
             </div>

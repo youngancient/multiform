@@ -24,8 +24,11 @@ const footerVariants = {
 };
 
 const SelectPlan = () => {
+  // Tasks: 
   // the selected components are not switching in the UI. Check warriz going on bruv!
-  // we move lirru by lirru
+  // we need to check for errors in each page before transiting to the next
+  // work on the order summary
+
   const [monthlyPlans, setMonthlyPlans] = useState([
     {
       img: "/assets/icon-arcade.svg",
@@ -58,8 +61,8 @@ const SelectPlan = () => {
   const dispatch = useDispatch();
 
   const onChange = () => {
-    // setisYearly(!isYearly);
-    dispatch(setSelectPlanType(!select.isYearly));
+    console.log(!select.isYearly)
+    dispatch(setSelectPlanType(select.isYearly));
   };
   return (
     <div className="page-var">
