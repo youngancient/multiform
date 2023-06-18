@@ -38,7 +38,7 @@ const Summary = () => {
   useEffect(()=>{
     setTotal(totalPrice);
   },[totalPrice])
-  console.log(selectedPlan);
+  
   const goToSelect = () => {
     dispatch(goToSelectPage());
   };

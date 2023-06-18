@@ -6,17 +6,18 @@ import { useDispatch } from "react-redux";
 import { decrement, increment } from "../../redux/pageCounter";
 import { useEffect } from "react";
 
-const PageButton = ({nextP, backP}) => {
+const PageButton = ({nextP, backP, pageError}) => {
   // get location
   const loc = useLocation();
   const navigate = useNavigate();
 
   // get the dispatch for the counter reducer
   const dispatch = useDispatch()
-  
   const nextPage = () => {
-    dispatch(increment({loc}));
-    navigate(nextP);
+    if(!pageError){
+      dispatch(increment({loc}));
+      navigate(nextP);
+    }
   };
   const backPage = () => {
     dispatch(decrement());

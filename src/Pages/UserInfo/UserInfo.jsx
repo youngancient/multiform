@@ -149,7 +149,7 @@ const UserInfo = () => {
           </motion.div>
         </div>
         <div className="page-comp">
-          <PageButton nextP="/select" backP="/" />
+          <PageButton nextP="/select" backP="/" pageError = {errors ? true : false} />
         </div>
       </form>
     </div>
