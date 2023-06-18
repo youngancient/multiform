@@ -33,6 +33,7 @@ const SelectPlan = () => {
   const { select } = useSelector((state) => state.data);
   const allPlans = select.selectedPlans;
   const dispatch = useDispatch();
+  // check if the yearly switch is one for the first element
   const isYearly = allPlans[0].isYearly;
 
   const onChange = () => {
@@ -59,7 +60,7 @@ const SelectPlan = () => {
           <div className="content">
             <div className="plans-cont">
               {allPlans.map((plan) => (
-                <Plans plan={plan} key={plan.name} isYearly={plan.isYearly} isSelected={plan.isSelected} />
+                <Plans plan={plan} key={plan.id} isYearly={isYearly} isSelected={plan.isSelected} />
               ))}
             </div>
             <div className="switch-layer">

@@ -76,15 +76,10 @@ const PlansDiv = styled.div`
   }
 `;
 const Plans = ({ plan, isYearly, isSelected }) => {
-  // const { select } = useSelector((state) => state.data);
-  // console.log(select.selectedPlans)
   const dispatch = useDispatch();
   const handleClick =()=>{
     dispatch(changeSelectedPlan(plan));
   }
-  console.log(isYearly)
-  // when i switch from monthly to yearly and move from the select page, 
-  // when  i come back to the page, some components are not rendered
   return (
     <PlansDiv isSelected={isSelected} onClick={handleClick}>
       <div className="img">
@@ -110,9 +105,6 @@ const Plans = ({ plan, isYearly, isSelected }) => {
               <motion.p
                 className="price"
                 key="price-y"
-                initial="initial"
-                variants={priceVariants}
-                exit="exit"
               >
                 {plan.yearlyPrice}
               </motion.p>
@@ -124,9 +116,6 @@ const Plans = ({ plan, isYearly, isSelected }) => {
             <motion.div
               className="free"
               key="free"
-              initial="initial"
-              variants={priceVariants}
-              exit="exit"
             >
               {plan.free}
             </motion.div>

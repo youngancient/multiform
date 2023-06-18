@@ -29,10 +29,18 @@ hr{
 }
 .summary-div h4{
     font-size: 1.1rem;
+    color: hsl(213, 96%, 18%);
+}
+.summary-div .change{
+    color: hsl(231, 11%, 63%);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: hsl(231, 11%, 63%);
 }
 .summary-div .price{
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 700;
     color: hsl(213, 96%, 18%);
 }
 .summary .stored{

@@ -62,7 +62,7 @@ const Summary = () => {
             <div className="summary-div">
               <div className="sm-div-inner">
                 <h4>{selectedPlan.name} ({isYearly ? "Yearly" : "Monthly"})</h4>
-                <Link to="/select" onClick={goToSelect}>
+                <Link to="/select" onClick={goToSelect} className="change">
                   Change
                 </Link>
               </div>
