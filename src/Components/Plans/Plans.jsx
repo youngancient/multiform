@@ -76,11 +76,13 @@ const PlansDiv = styled.div`
   }
 `;
 const Plans = ({ plan, isYearly, isSelected }) => {
+  // const { select } = useSelector((state) => state.data);
+  // console.log(select.selectedPlans)
   const dispatch = useDispatch();
   const handleClick =()=>{
     dispatch(changeSelectedPlan(plan));
   }
-  console.log(isYearly);
+  console.log(isYearly)
   // when i switch from monthly to yearly and move from the select page, 
   // when  i come back to the page, some components are not rendered
   return (

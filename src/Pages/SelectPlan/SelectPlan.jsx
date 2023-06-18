@@ -29,40 +29,15 @@ const SelectPlan = () => {
   // we need to check for errors in each page before transiting to the next
   // work on the order summary
 
-  const [monthlyPlans, setMonthlyPlans] = useState([
-    {
-      img: "/assets/icon-arcade.svg",
-      name: "Arcade",
-      price: "$9/mo",
-      yearlyPrice: "$90/yr",
-      free: "2 months free",
-      id : 1,
-    },
-    {
-      img: "/assets/icon-advanced.svg",
-      name: "Advanced",
-      price: "$12/mo",
-      yearlyPrice: "$120/yr",
-      free: "2 months free",
-      id : 2,
-    },
-    {
-      img: "/assets/icon-pro.svg",
-      name: "Pro",
-      price: "$15/mo",
-      yearlyPrice: "$150/yr",
-      free: "2 months free",
-      id : 3,
-    },
-  ]);
   // const [isYearly, setisYearly] = useState(false);
   const { select } = useSelector((state) => state.data);
-  const selected = select.selectedPlan;
+  const allPlans = select.selectedPlans;
   const dispatch = useDispatch();
+  const isYearly = allPlans[0].isYearly;
 
   const onChange = () => {
-    console.log(!select.isYearly)
-    dispatch(setSelectPlanType(select.isYearly));
+    console.log(isYearly)
+    dispatch(setSelectPlanType(!isYearly));
   };
   return (
     <div className="page-var">
@@ -83,8 +58,8 @@ const SelectPlan = () => {
           </div>
           <div className="content">
             <div className="plans-cont">
-              {monthlyPlans.map((plan) => (
-                <Plans plan={plan} key={plan.name} isYearly={select.isYearly} isSelected={plan.id === selected.id} />
+              {allPlans.map((plan) => (
+                <Plans plan={plan} key={plan.name} isYearly={plan.isYearly} isSelected={plan.isSelected} />
               ))}
             </div>
             <div className="switch-layer">
@@ -101,7 +76,7 @@ const SelectPlan = () => {
                 </div>
                 <Switch
                   onChange={onChange}
-                  defaultChecked={select.isYearly ? true : false}
+                  defaultChecked={isYearly}
                   style={{ backgroundColor: "hsl(213, 96%, 18%)" }}
                 />
                 <div

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromAddons, setAddons } from "../../redux/dataSlice";
 
-const AddCheck = ({ option }) => {
+const AddCheck = ({ option, isYearly }) => {
   const dispatch = useDispatch();
   const handleSelect = (e) => {
     if(e.target.checked){
@@ -22,7 +22,7 @@ const AddCheck = ({ option }) => {
           <p className="desc">{option.detail}</p>
         </div>
       </div>
-      <div className="add-price">{option.price}</div>
+      <div className="add-price">{isYearly? option.yearlyPrice : option.price}</div>
     </div>
   );
 };

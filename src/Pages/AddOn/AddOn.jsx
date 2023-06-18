@@ -4,30 +4,14 @@ import { useState } from "react";
 import AddCheck from "../../Components/AddCheck/AddCheck";
 import PageButton from "../../Components/PageButton/pageButton";
 import { useSelector } from "react-redux";
+import { pageVariant } from "../../Animation/Variants";
 
-const pageVariant = {
-  initial: {
-    x: "-300px",
-    opacity: 0,
-  },
-  final: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.75,
-    },
-  },
-  exit: {
-    x: "-300px",
-    opacity: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
 
 const AddOn = () => {
-  const { addOn} = useSelector((state) => state.data);
+  const { addOn } = useSelector((state) => state.data);
+  const { select } = useSelector((state) => state.data);
+  const allPlans = select.selectedPlans;
+  const isYearly = allPlans[0].isYearly;
   return (
     <div className="page-var">
       <div className="white-bg">
@@ -48,7 +32,7 @@ const AddOn = () => {
           <div className="content">
             <div className="addons">
               {addOn.map((option) => (
-                <AddCheck option={option} key={option.name} />
+                <AddCheck option={option} key={option.name} isYearly={isYearly} />
               ))}
             </div>
           </div>

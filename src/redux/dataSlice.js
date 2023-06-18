@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { AddOn, listPlans } from "./data";
 
 const initialState = {
   person: {
@@ -8,40 +9,9 @@ const initialState = {
     sectionError: {},
   },
   select: {
-    selectedPlan: {
-      img: "/assets/icon-arcade.svg",
-      name: "Arcade",
-      price: "$9/mo",
-      yearlyPrice: "$90/yr",
-      free: "2 months free",
-      id: 1,
-    },
-    isYearly: false,
+    selectedPlans: listPlans,
   },
-  addOn: [{
-    name: "Online service",
-    detail: "Access to multiplayer games",
-    price: "+$1/mo",
-    yearlyPrice: "+$10/mo",
-    id : 1,
-    checked : false,    
-  },
-  {
-    name: "Larger storage",
-    detail: "Extra 1TB of cloud save",
-    price: "+$2/mo",
-    yearlyPrice: "+$20/mo",
-    id : 2,
-    checked : false,
-  },
-  {
-    name: "Customizable Profile",
-    detail: "Custom theme on your profile",
-    price: "+$2/mo",
-    yearlyPrice: "+$20/mo",
-    id : 3,
-    checked : false,
-  },],
+  addOn: AddOn,
   summary: {},
 };
 
@@ -74,23 +44,33 @@ export const dataSlice = createSlice({
       };
     },
     changeSelectedPlan: (state, { payload }) => {
-      state.select.selectedPlan = payload;
+      const updatedArray = state.select.selectedPlans.map((ele) =>{
+        if(ele.id == payload.id){
+          return {...ele, isSelected : true}
+        }else{
+          return {...ele, isSelected : false} 
+        }
+      });
+      state.select.selectedPlans = updatedArray;
     },
     setSelectPlanType: (state, { payload }) => {
-      state.select.isYearly = !payload;
+      const updatedArray = state.select.selectedPlans.map((ele)=>{
+        return { ...ele, isYearly: payload}
+      });
+      state.select.selectedPlans = updatedArray;
     },
-    setAddons : (state, { payload }) => {
-      const updatedArray = state.addOn.map((ele)=>{
-        if(ele.id == payload.id){
-          return {...ele, checked : true}
-        }else{
-          return {...ele};
+    setAddons: (state, { payload }) => {
+      const updatedArray = state.addOn.map((ele) => {
+        if (ele.id == payload.id) {
+          return { ...ele, checked: true };
+        } else {
+          return { ...ele };
         }
       });
       state.addOn = updatedArray;
     },
-    removeFromAddons : (state, { payload }) => {
-      const filtered = state.addOn.filter((ele)=> ele.id != payload);
+    removeFromAddons: (state, { payload }) => {
+      const filtered = state.addOn.filter((ele) => ele.id != payload);
       state.addOn = filtered;
     },
   },
@@ -104,6 +84,6 @@ export const {
   changeSelectedPlan,
   setSelectPlanType,
   setAddons,
-  removeFromAddons
+  removeFromAddons,
 } = dataSlice.actions;
 export default dataSlice.reducer;
