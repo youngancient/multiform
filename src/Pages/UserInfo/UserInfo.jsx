@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import validator from "validator";
 import {
   confirmVariant,
   exitButton,
@@ -11,10 +12,15 @@ import {
 } from "../../Animation/Variants";
 import PageButton from "../../Components/PageButton/pageButton";
 import isEmail from "validator/lib/isEmail";
-import { setEmail, setError, setName, setPhoneNo } from "../../redux/dataSlice";
+import {
+  setEmail,
+  setName,
+  setPageError,
+  setPhoneNo,
+} from "../../redux/dataSlice";
 
 const UserInfo = () => {
-  const { person } = useSelector((state) => state.data);
+  const { person, pageErrorExist } = useSelector((state) => state.data);
 
   const dispatch = useDispatch();
 
@@ -24,6 +30,7 @@ const UserInfo = () => {
     number: "",
   });
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
   // instantiating hook-form
   const {
     register,
@@ -39,10 +46,12 @@ const UserInfo = () => {
   });
 
   const onFormSubmit = (data) => {
+    setIsSubmitted(true);
     if (data) {
       dispatch(setEmail(data.email));
       dispatch(setName(data.name));
       dispatch(setPhoneNo(data.number));
+      setIsSubmitted(true);
     }
     // pass the data into redux
   };
@@ -53,24 +62,30 @@ const UserInfo = () => {
     });
   };
   const handleEmailChange = (e) => {
-    console.log(defaultFormVal);
     setDefaultFormVal({
       ...defaultFormVal,
       email: e.target.value,
     });
   };
   const handleNumberChange = (e) => {
-    console.log(defaultFormVal);
     setDefaultFormVal({
       ...defaultFormVal,
       number: e.target.value,
     });
   };
 
-  // note that the setstate is working, the actual problem happens when i set the value attribute to the defaultValue in state!!!!
   const handleError = (errors) => {
     console.log(errors);
   };
+
+  // the last bug is that i have to click the next button twice before the select plan page comes
+  useEffect(() => {
+    if(isSubmitted){
+      Object.keys(errors).length === 0
+        ? dispatch(setPageError(false))
+        : dispatch(setPageError(true));
+    }
+  }, [isSubmitted, errors]);
 
   return (
     <div className="page-var user-info">
@@ -149,7 +164,7 @@ const UserInfo = () => {
           </motion.div>
         </div>
         <div className="page-comp">
-          <PageButton nextP="/select" backP="/" pageError = {errors ? true : false} />
+          <PageButton nextP="/select" backP="/" pageError={pageErrorExist} />
         </div>
       </form>
     </div>

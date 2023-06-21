@@ -6,8 +6,8 @@ const initialState = {
     name: "",
     email: "",
     number: "",
-    sectionError: {},
   },
+  pageErrorExist: true,
   select: {
     selectedPlans: listPlans,
   },
@@ -73,6 +73,10 @@ export const dataSlice = createSlice({
       const filtered = state.addOn.filter((ele) => ele.id != payload);
       state.addOn = filtered;
     },
+    setPageError : (state, {payload}) => {
+      state.pageErrorExist = payload;
+      console.log(payload);
+    }
   },
 });
 
@@ -84,6 +88,7 @@ export const {
   changeSelectedPlan,
   setSelectPlanType,
   setAddons,
+  setPageError,
   removeFromAddons,
 } = dataSlice.actions;
 export default dataSlice.reducer;

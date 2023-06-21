@@ -14,6 +14,7 @@ const PageButton = ({nextP, backP, pageError}) => {
   // get the dispatch for the counter reducer
   const dispatch = useDispatch()
   const nextPage = () => {
+    // console.log(pageError);
     if(!pageError){
       dispatch(increment({loc}));
       navigate(nextP);
