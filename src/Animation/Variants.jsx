@@ -96,3 +96,31 @@ export const exitButton ={
       },
     },
   };
+
+  export const svgVariants = {
+    initial: {
+      rotate: -180,
+    },
+    final: {
+      rotate: 0,
+      transition: {
+        delay: 0.75,
+        duration: 2,
+      },
+    },
+  };
+  export const pathVariants = {
+    initial: {
+      opacity: 0,
+      pathLength: 0,
+    },
+    final: {
+      opacity: 1,
+      pathLength: 1,
+      transition: {
+        delay: 0.5,
+        duration: 2,
+        ease: "easeInOut",
+      },
+    },
+  };

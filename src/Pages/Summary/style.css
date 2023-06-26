@@ -62,12 +62,18 @@ hr{
     .summary .content, .total-div{
         padding: 1.8rem;
     }
+    .summary-div .content{
+        gap: 1rem;
+    }
 }
 @media screen and (min-width: 998px) {
     .summary-div .content{
-        gap: 1.65rem;
+        gap: 1.5rem;
     }
     .summary .content, .total-div{
         padding: 2rem;
+    }
+    .summary .page-comp{
+        margin-top: 1rem;
     }
 }

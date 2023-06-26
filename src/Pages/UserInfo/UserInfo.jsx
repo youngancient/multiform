@@ -4,20 +4,43 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import validator from "validator";
 import {
   confirmVariant,
   exitButton,
   pageVariant,
 } from "../../Animation/Variants";
 import PageButton from "../../Components/PageButton/pageButton";
-import isEmail from "validator/lib/isEmail";
 import {
   setEmail,
   setName,
   setPageError,
   setPhoneNo,
 } from "../../redux/dataSlice";
+import styled from "@emotion/styled";
+
+export const UserinfoStyle = styled.div`
+
+  @media screen and (min-width: 768px) {
+    .page-var{
+      min-height: 508px;
+      display : flex;
+      justify-content: space-between;
+      flex-direction: column;
+      overflow-y: scroll;
+    }
+  }
+  @media screen and (min-width: 998px) {
+    .page-var{
+      max-height: 545px;
+    }
+    .page-var::-webkit-scrollbar {
+      display: none;
+    }
+    .white-bg::-webkit-scrollbar {
+      display: none;
+    }
+}
+`
 
 const UserInfo = () => {
   const { person, pageErrorExist } = useSelector((state) => state.data);
@@ -48,6 +71,7 @@ const UserInfo = () => {
   const onFormSubmit = (data) => {
     setIsSubmitted(true);
     if (data) {
+      // store this data in local storage also
       dispatch(setEmail(data.email));
       dispatch(setName(data.name));
       dispatch(setPhoneNo(data.number));
@@ -79,6 +103,7 @@ const UserInfo = () => {
   };
 
   // the last bug is that i have to click the next button twice before the select plan page comes
+  // secondly, the styles are quite poor
   useEffect(() => {
     if(isSubmitted){
       Object.keys(errors).length === 0
@@ -88,6 +113,7 @@ const UserInfo = () => {
   }, [isSubmitted, errors]);
 
   return (
+    <UserinfoStyle>
     <div className="page-var user-info">
       <form onSubmit={handleSubmit(onFormSubmit, handleError)}>
         <div className="white-bg">
@@ -168,6 +194,7 @@ const UserInfo = () => {
         </div>
       </form>
     </div>
+    </UserinfoStyle>
   );
 };
 

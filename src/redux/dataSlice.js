@@ -70,7 +70,13 @@ export const dataSlice = createSlice({
       state.addOn = updatedArray;
     },
     removeFromAddons: (state, { payload }) => {
-      const filtered = state.addOn.filter((ele) => ele.id != payload);
+      const filtered = state.addOn.map((ele) => {
+        if (ele.id == payload) {
+          return { ...ele, checked: false };
+        } else {
+          return { ...ele };
+        }
+      });
       state.addOn = filtered;
     },
     setPageError : (state, {payload}) => {

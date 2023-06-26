@@ -12,6 +12,7 @@ import {
 import PageButton from "../../Components/PageButton/pageButton";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectPlanType } from "../../redux/dataSlice";
+import styled from "@emotion/styled";
 
 const footerVariants = {
   exit: {
@@ -23,6 +24,29 @@ const footerVariants = {
   },
 };
 
+export const SelectPlanStyle = styled.div`
+
+  @media screen and (min-width: 768px) {
+    .page-var{
+      min-height: 508px;
+      display : flex;
+      justify-content: space-between;
+      flex-direction: column;
+      overflow-y: scroll;
+    }
+  }
+  @media screen and (min-width: 998px) {
+    .page-var{
+      max-height: 545px;
+    }
+    .page-var::-webkit-scrollbar {
+      display: none;
+    }
+    .white-bg::-webkit-scrollbar {
+      display: none;
+    }
+}
+`
 const SelectPlan = () => {
   // Tasks: 
   // the selected components are not switching in the UI. Check warriz going on bruv!
@@ -41,6 +65,7 @@ const SelectPlan = () => {
     dispatch(setSelectPlanType(!isYearly));
   };
   return (
+    <SelectPlanStyle>
     <div className="page-var">
       <div className="white-bg">
         <motion.div
@@ -99,6 +124,7 @@ const SelectPlan = () => {
           <PageButton nextP="/addon" backP="/" />
       </div>
     </div>
+    </SelectPlanStyle>
   );
 };
 

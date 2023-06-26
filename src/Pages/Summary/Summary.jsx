@@ -6,6 +6,40 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { goToSelectPage } from "../../redux/pageCounter";
 import { useEffect, useState } from "react";
+import styled from "@emotion/styled";
+
+export const SummaryStyle = styled.div`
+
+  @media screen and (min-width: 768px) {
+    .page-var{
+      min-height: 508px;
+      display : flex;
+      justify-content: space-between;
+      flex-direction: column;
+      overflow-y: scroll;
+    }
+    .page-var::-webkit-scrollbar {
+      display: none;
+    }
+    .white-bg::-webkit-scrollbar {
+      display: none;
+    }
+    .content{
+      gap : 0.75rem;
+    }
+}
+  @media screen and (min-width: 998px) {
+    .page-var{
+      max-height: 545px;
+    }
+    .content{
+      gap : 1.5rem;
+    }
+}
+`
+// when the confirm button is clicked, the user shouldnt be able to go back,
+// going back should redirect the user to the beginning of the forms state
+// there should a state in redux to manage if the whole Form has been completely filled and submitted
 
 const Summary = () => {
   // get location
@@ -34,7 +68,8 @@ const Summary = () => {
       : (price = parseInt(ele.price.replace(/[^0-9]/g, "")));
       totalPrice += price;
     });
-  
+  // controlling page Error
+  const [pageError, setPageError] = useState(false);
   useEffect(()=>{
     setTotal(totalPrice);
   },[totalPrice])
@@ -43,6 +78,7 @@ const Summary = () => {
     dispatch(goToSelectPage());
   };
   return (
+    <SummaryStyle>
     <div className="page-var">
       <div className="white-bg">
         <motion.div
@@ -87,9 +123,10 @@ const Summary = () => {
         </motion.div>
       </div>
       <div className="page-comp">
-        <PageButton nextP="/success" backP="/addon" />
+        <PageButton nextP="/success" backP="/addon"/>
       </div>
     </div>
+    </SummaryStyle>
   );
 };
 

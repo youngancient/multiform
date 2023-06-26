@@ -33,6 +33,7 @@
     color: hsl(231, 100%, 99%);
     letter-spacing: 2px;
 }
+
 @media screen and (min-width: 728px) {
     .mobile{
         display: none;
@@ -43,6 +44,29 @@
     .fixed-div{
         display: flex;
         gap: 1rem;
+    }
+    .fixed-nav{
+        padding: 1.5rem 1rem 1rem 1rem;
+    }
+    .step{
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+@media screen and (min-width: 998px) {
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+    .fixed-div{
+        display: flex;
+        gap: 1rem;
+    }
+    .fixed-nav{
+        padding: 1.5rem;
     }
     .step{
         display: flex;
