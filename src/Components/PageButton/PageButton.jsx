@@ -2,20 +2,21 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { confirmVariant, exitButton } from "../../Animation/Variants";
 import { motion, AnimatePresence } from "framer-motion";
 import "./style.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../../redux/pageCounter";
 import { useEffect } from "react";
+import { setIsFormSubmitted } from "../../redux/dataSlice";
 
 const PageButton = ({nextP, backP, pageError}) => {
   // get location
   const loc = useLocation();
   const navigate = useNavigate();
-
   // get the dispatch for the counter reducer
   const dispatch = useDispatch()
   const nextPage = () => {
-    // console.log(pageError);
     if(!pageError){
+      if(nextP === "/success"){
+      };
       dispatch(increment({loc}));
       navigate(nextP);
     }

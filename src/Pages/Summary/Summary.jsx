@@ -37,9 +37,6 @@ export const SummaryStyle = styled.div`
     }
 }
 `
-// when the confirm button is clicked, the user shouldnt be able to go back,
-// going back should redirect the user to the beginning of the forms state
-// there should a state in redux to manage if the whole Form has been completely filled and submitted
 
 const Summary = () => {
   // get location

@@ -103,14 +103,14 @@ const UserInfo = () => {
   };
 
   // the last bug is that i have to click the next button twice before the select plan page comes
-  // secondly, the styles are quite poor
+
   useEffect(() => {
     if(isSubmitted){
       Object.keys(errors).length === 0
-        ? dispatch(setPageError(false))
-        : dispatch(setPageError(true));
+      ? dispatch(setPageError(false))
+      : dispatch(setPageError(true));
     }
-  }, [isSubmitted, errors]);
+  }, [errors, isSubmitted]);
 
   return (
     <UserinfoStyle>

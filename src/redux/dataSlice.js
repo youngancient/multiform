@@ -13,6 +13,7 @@ const initialState = {
   },
   addOn: AddOn,
   summary: {},
+  isFormSubmitted : false,
 };
 
 export const dataSlice = createSlice({
@@ -73,7 +74,7 @@ export const dataSlice = createSlice({
       const filtered = state.addOn.map((ele) => {
         if (ele.id == payload) {
           return { ...ele, checked: false };
-        } else {
+        } else {  
           return { ...ele };
         }
       });
@@ -82,6 +83,9 @@ export const dataSlice = createSlice({
     setPageError : (state, {payload}) => {
       state.pageErrorExist = payload;
       console.log(payload);
+    },
+    setIsFormSubmitted : (state, {payload}) => {
+      state.isFormSubmitted = payload;
     }
   },
 });
@@ -96,5 +100,6 @@ export const {
   setAddons,
   setPageError,
   removeFromAddons,
+  setIsFormSubmitted
 } = dataSlice.actions;
 export default dataSlice.reducer;
