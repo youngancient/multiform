@@ -7,16 +7,19 @@ import { decrement, increment } from "../../redux/pageCounter";
 import { useEffect } from "react";
 import { setIsFormSubmitted } from "../../redux/dataSlice";
 
-const PageButton = ({nextP, backP, pageError}) => {
+const PageButton = ({nextP, backP}) => {
   // get location
   const loc = useLocation();
   const navigate = useNavigate();
+  const { pageErrorExist } = useSelector((state) => state.data);
+
+
+  // console.log(pageErrorExist);
   // get the dispatch for the counter reducer
-  const dispatch = useDispatch()
+
+  const dispatch = useDispatch();
   const nextPage = () => {
-    if(!pageError){
-      if(nextP === "/success"){
-      };
+    if(!pageErrorExist){
       dispatch(increment({loc}));
       navigate(nextP);
     }

@@ -12,6 +12,7 @@ import {
 import PageButton from "../../Components/PageButton/pageButton";
 import {
   setEmail,
+  setIsFormSubmitted,
   setName,
   setPageError,
   setPhoneNo,
@@ -42,8 +43,8 @@ export const UserinfoStyle = styled.div`
 }
 `
 
-const UserInfo = () => {
-  const { person, pageErrorExist } = useSelector((state) => state.data);
+export const UserInfo = () => {
+  const { person, pageErrorExist, isFormSubmitted  } = useSelector((state) => state.data);
 
   const dispatch = useDispatch();
 
@@ -75,9 +76,10 @@ const UserInfo = () => {
       dispatch(setEmail(data.email));
       dispatch(setName(data.name));
       dispatch(setPhoneNo(data.number));
-      setIsSubmitted(true);
+      dispatch(setPageError(false))
     }
     // pass the data into redux
+    console.log(isFormSubmitted);
   };
   const handleNameChange = (e) => {
     setDefaultFormVal({
@@ -101,16 +103,6 @@ const UserInfo = () => {
   const handleError = (errors) => {
     console.log(errors);
   };
-
-  // the last bug is that i have to click the next button twice before the select plan page comes
-
-  useEffect(() => {
-    if(isSubmitted){
-      Object.keys(errors).length === 0
-      ? dispatch(setPageError(false))
-      : dispatch(setPageError(true));
-    }
-  }, [errors, isSubmitted]);
 
   return (
     <UserinfoStyle>
@@ -190,7 +182,7 @@ const UserInfo = () => {
           </motion.div>
         </div>
         <div className="page-comp">
-          <PageButton nextP="/select" backP="/" pageError={pageErrorExist} />
+          <PageButton nextP="/select" backP="/" />
         </div>
       </form>
     </div>
@@ -198,4 +190,5 @@ const UserInfo = () => {
   );
 };
 
-export default UserInfo;
+
+

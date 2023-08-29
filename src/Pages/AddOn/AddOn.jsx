@@ -12,7 +12,7 @@ export const AddonStyles = styled.div`
 @media screen and (min-width: 768px) {
   
   .page-var{
-    min-height: 508px;
+    height: 508px;
     display : flex;
     justify-content: space-between;
     flex-direction: column;
@@ -20,7 +20,7 @@ export const AddonStyles = styled.div`
 }
 @media screen and (min-width: 998px) {
   .page-var{
-    min-height: 545px;
+    height: 545px;
   }
 }
 `

@@ -30,7 +30,7 @@ export const SummaryStyle = styled.div`
 }
   @media screen and (min-width: 998px) {
     .page-var{
-      max-height: 545px;
+      height: 545px;
     }
     .content{
       gap : 1.5rem;

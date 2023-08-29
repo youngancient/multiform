@@ -18,7 +18,7 @@ export const SuccessStyle = styled.div`
   }
   @media screen and (min-width: 998px) {
     .success{
-      min-height: 535px;
+      height: 545px;
     }
   }
 `;

@@ -6,7 +6,7 @@ import AddOn from "./Pages/AddOn/AddOn";
 import Error from "./Pages/Error/Error";
 import SelectPlan from "./Pages/SelectPlan/SelectPlan";
 import Summary from "./Pages/Summary/Summary";
-import UserInfo from "./Pages/UserInfo/UserInfo";
+import {UserInfo} from "./Pages/UserInfo/UserInfo";
 import Success from "./Pages/Success/Success";
 import { AnimatePresence, motion } from "framer-motion";
 import { useDispatch, useSelector} from "react-redux";
